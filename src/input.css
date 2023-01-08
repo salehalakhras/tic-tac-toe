@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.square{
+    @apply p-4 border-blue-800 text-xl font-bold hover:text-yellow-300 border-yellow-300 ;
+}
