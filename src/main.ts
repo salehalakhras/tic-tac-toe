@@ -26,36 +26,48 @@ function createPlayer(symbol: string, name: string) {
 }
 
 let gameController = (function () {
+    var gameOn: boolean = true;
     var player1 = createPlayer(`X`, `Player 1`);
     var player2 = createPlayer(`O`, `Player 2`);
     var turn: number = 1;
     var resetBtn = document.getElementById(`reset`);
     var winner: string = ``;
     var result = document.getElementById(`result`);
+    var restart = document.getElementById(`restart`);
     resetBtn?.addEventListener(`click`, init);
 
     for (let i = 0; i < 9; i++) {
-        gameBoard.board[i].addEventListener(`click`, () => makeMove(i))
+        gameBoard.board[i].addEventListener(`click`, makeMove.bind(this, i))
     }
 
     function init() {
+        gameOn = true;
         gameBoard.clear();
         turn = 1;
         result!.innerText = ``;
+        winner = ``;
+        restart!.innerText = ``;
     }
 
     function makeMove(squareNum: number) {
-        if (turn % 2) {
-            gameBoard.board[squareNum].innerText = player1.symbol;
-            turn++;
+        if (gameOn) {
+            if (turn % 2) {
+                gameBoard.board[squareNum].innerText = player1.symbol;
+                turn++;
 
+            }
+            else {
+                gameBoard.board[squareNum].innerText = player2.symbol;
+                turn++;
+            }
+            if (turn > 5) {
+                checkWinner()
+                if (winner != ``) {
+                    result!.innerText = winner + ` Won, Congratulations`;
+                    endGame();
+                }
+            }
         }
-        else {
-            gameBoard.board[squareNum].innerText = player2.symbol;
-            turn++;
-        }
-        if (turn > 5)
-            checkWinner();
     }
 
     function checkWinner() {
@@ -107,14 +119,10 @@ let gameController = (function () {
             else
                 winner = player2.name;
         }
-
-        if (result?.innerText == ``)
-            result!.innerText = winner;
     }
 
-    return{
-        turn:turn,
-        winner: winner,
-        gameBoard:gameBoard
+    function endGame() {
+        gameOn = false;
+        restart!.innerText = `Please press Reset to restart`;
     }
 })()
