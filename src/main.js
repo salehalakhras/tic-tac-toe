@@ -1,5 +1,5 @@
 let gameBoard = (function () {
-    var board: any = [];
+    var board= [];
 
     // link the board with html
     for (let i = 0; i < 9; i++) {
@@ -18,7 +18,7 @@ let gameBoard = (function () {
     }
 })()
 
-function createPlayer(symbol: string, name: string) {
+function createPlayer(symbol, name) {
     return {
         symbol: symbol,
         name: name
@@ -26,12 +26,12 @@ function createPlayer(symbol: string, name: string) {
 }
 
 let gameController = (function () {
-    var gameOn: boolean = true;
+    var gameOn = true;
     var player1 = createPlayer(`X`, `Player 1`);
     var player2 = createPlayer(`O`, `Player 2`);
-    var turn: number = 1;
+    var turn = 1;
     var resetBtn = document.getElementById(`reset`);
-    var winner: string = ``;
+    var winner = ``;
     var result = document.getElementById(`result`);
     var restart = document.getElementById(`restart`);
     resetBtn?.addEventListener(`click`, init);
@@ -44,12 +44,12 @@ let gameController = (function () {
         gameOn = true;
         gameBoard.clear();
         turn = 1;
-        result!.innerText = ``;
+        result.innerText = ``;
         winner = ``;
-        restart!.innerText = ``;
+        restart.innerText = ``;
     }
 
-    function makeMove(squareNum: number) {
+    function makeMove(squareNum) {
         if (gameOn) {
             if (turn % 2) {
                 gameBoard.board[squareNum].innerText = player1.symbol;
@@ -63,7 +63,7 @@ let gameController = (function () {
             if (turn > 5) {
                 checkWinner()
                 if (winner != ``) {
-                    result!.innerText = winner + ` Won, Congratulations`;
+                    result.innerText = winner + ` Won, Congratulations`;
                     endGame();
                 }
             }
@@ -123,6 +123,6 @@ let gameController = (function () {
 
     function endGame() {
         gameOn = false;
-        restart!.innerText = `Please press Reset to restart`;
+        restart.innerText = `Please press Reset to restart`;
     }
 })()
