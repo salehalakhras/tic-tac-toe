@@ -8,21 +8,23 @@
   <script src="./src/main.ts" defer></script>
 </head>
 
-<body class="text-white bg-black">
-  <div class="text-center text-2xl font-bold ">Tic Tac Toe</div>
+<body class="text-white bg-black flex justify-center content-center flex-col">
+  <div class="text-center text-2xl font-bold text-yellow-300">Tic Tac Toe</div>
+  <div id="result" class="text-center text-white text-xl font-bold"></div>
   <div class="container flex justify-center items-center mt-32 p-4">
     <ul class="grid grid-rows-3 grid-cols-3">
-      <button class="square border-r-2 border-b-2">1</button>
-      <button class="square border-r-2 border-b-2">1</button>
-      <button class="square border-b-2">1</button>
-      <button class="square border-r-2 border-b-2">1</button>
-      <button class="square border-r-2 border-b-2">1</button>
-      <button class="square border-b-2">1</button>
-      <button class="square border-r-2">1</button>
-      <button class="square border-r-2">1</button>
-      <button class="square">1</button>
+      <button id="btn-1" class="square border-r-2 border-b-2"></button>
+      <button id="btn-2" class="square border-r-2 border-b-2"></button>
+      <button id="btn-3" class="square border-b-2"></button>
+      <button id="btn-4" class="square border-r-2 border-b-2"></button>
+      <button id="btn-5" class="square border-r-2 border-b-2"></button>
+      <button id="btn-6" class="square border-b-2"></button>
+      <button id="btn-7" class="square border-r-2"></button>
+      <button id="btn-8" class="square border-r-2"></button>
+      <button id="btn-9" class="square"></button>
     </ul>
   </div>
+  <button id="reset" class="reset">Reset</button>
 </body>
 
 </html>
