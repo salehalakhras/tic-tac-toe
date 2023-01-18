@@ -555,6 +555,14 @@ video {
   margin-top: 8rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .flex {
   display: flex;
 }
@@ -565,6 +573,25 @@ video {
 
 .h-16 {
   height: 4rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.min-w-min {
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+
+.min-w-max {
+  min-width: -moz-max-content;
+  min-width: max-content;
 }
 
 .grid-cols-3 {

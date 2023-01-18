@@ -66,6 +66,12 @@ let gameController = (function () {
             endGame();
           }
         }
+        if (turn === 10) {
+          if (winner === ``) {
+            result.innerText = `Tie, Try Again`;
+            endGame();
+          }
+        }
       }
     }
   }
